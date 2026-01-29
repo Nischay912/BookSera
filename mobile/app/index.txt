@@ -1,0 +1,51 @@
+import { Link } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
+import { useAuthStore } from "../store/authStore";
+import { useEffect } from "react";
+
+export default function Index() {
+  // step345: now for now if we do here below that , we console log user and token from auth store, then it will print "null" for both of them currently , even after we signed up and were authenticated ; its because whenever we reload the application, the authStore starts from scratch there and makes them again :null like it was defined inn the useAuthStore file, thus here below.
+
+  // step346: see the next steps in authStore.js file now there.
+  const { user, token, checkAuth, logout } = useAuthStore();
+  // console.log(user, token);
+
+  // step352: so now whenever we start the application, we will call the checkAuth function to check if user is authenticated or not, thus here below.
+
+  // step353: now even if we press "r" in terminal and reload the app, it will still be authenticated and console log there will not show "null" now there, thus here below.
+  useEffect(() => {checkAuth()}, [])
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {/* step354: can instead lets print here only below using ?. which means print only if that is not null, else Otherwise, return undefined instead of throwing an error, thus here below. */}
+      <Text style = {{color: "red"}}>Hello {user?.username}</Text>
+      <Text style = {{color: "red"}}>Token: {token}</Text>
+
+      {/* step355: also for testing purpose of logout for now, lets have a button which is <TouchableOpacity> in react-native thus here below. */}
+
+      {/* step356: see the next steps in authStore.js file now there. */}
+      <TouchableOpacity
+        // onPress={() => logout()}
+        onPress={logout} // no need to put {} around logout if => there and if no => used just write logout inside {} ; doing () => {logout} may not work ; thus here below.
+      >
+        <Text>Logout</Text>
+      </TouchableOpacity>
+
+      {/* step233: we can add links from expo-router to navigate to other screens there thus here below. */}
+
+      {/* step234: see the next steps in step235.txt file now there. */}
+
+      {/* step238: lets update the file path now ; and since index.jsx is the first home screen automatically of any folder we make ; so "/(auth) will directly link to the login page , no need to put there , thus here below." */}
+
+      {/* step239: see the next steps in _layout.jsx file of (auth) folder now there. */}
+      <Link href='/(auth)/signup'>SignUp</Link>
+      <Link href='/(auth)'>Login</Link>
+    </View>
+  );
+}

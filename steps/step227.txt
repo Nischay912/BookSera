@@ -1,0 +1,40 @@
+Now : the "app" folder there is the main special folder, all the files placed there, becomes the screens for our application there ; in web dev they were called web pages, but here in mobile app, we have screens ; like the default first screen we see is the index.tsx screen, thus here below.
+
+"index.tsx" is the convention for our homepage there ; even if we had another folder "auth" inside "app" > still we will have "index.tsx" file inside that folder as the entry point or starting screen for that older too ; thus this is a convention to keep index.tsx as starting home screen for any app thus here below , whenever we have nested routes there.
+
+The layout file there is also a special file, that we will see about in detail later now there.
+
+Change all ".tsx" in "app" folder as we will be using JavaScript and not TypeScript here in our/ for our project.
+
+Now, in react native ; whenever we have a text to be written, we should use : <Text> , else if we just write a text there without wrapping in <Text> component, then it will give error.
+
+Also we can have a object with the styles in the style field of any element like View , Text, etc : like present in the index.jsx file.
+
+Example : <Text style = {{color: "red"}}>Hello</Text>
+
+But adding so many styles like this for each component can make the file very long and un-manageable, so lets create a stylesheet to keep all the styles at one place there now.
+
+we have a StyleSheet from react-native which helps us to keep all the styles in one place now there ; so if we make like -
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    title: {
+        color: "red"
+    }
+})
+
+; then we can use it in components like -
+
+<View style={styles.container}> and <Text style={styles.title}> there.
+
+Now : we can install : cd mobile > "npx expo install expo-image" > and then we can use the Image component from expo-image in our file whenever needed there now ; and the Image from expo than the Image fro react native is that the expo-image vala is a lot more optimized as it allows to use many different options in the cache too there.
+
+So, we can use it like : <Image cachePolicy={""} /> : and then we can hover over it to see when to use which option as it lets us decide where to save the file based on our need there.
+
+Then we can do : <Image source={uri: ""} /> -> do like this if we are importing the image from a remote website ot something ; but if importing image from a local file of pc , we do : <Image source={require("")} /> and then we put the complete path of the image saved in the folder lets say in the images folder under the assets folder there ; so we need to mention its complete path thus there.
+
+See the next steps now in colors.js file now there.

@@ -1,0 +1,3 @@
+Now, once user has been created, we will be creating a JWT token for him and send it to the client/mobile application.
+
+So, see the next steps in authRoutes.js file now there.

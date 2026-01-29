@@ -1,0 +1,12 @@
+JWT_SECRET is used as the key to sign JWTs and to verify their authenticity (for symmetric algorithms like HS256) ; If an attacker obtains the secret they can forge valid tokens and impersonate users ; your server uses the secret to ensure incoming tokens were issued by your service and not tampered with ; 
+
+Now, we had made the JWT_SECRET in env file as a random secret by ourselves for now there "my_secret" ; but if hacker gets this secret , he can get the access to jwt tokens management and can get himself authenticated inot other's account easily there using jwt tokens ; so better to make a better secret there in the .env file for it there.
+
+So, for that > open terminal > click on + and create a new terminal there > make it "bash" using the drop down next to the "+" button there > type : "openssl rand -base64 32" .
+
+This command generates a random secret key (32 bytes of randomness) and encodes it in Base64 ; Base64 is a way of encoding data so it can be safely stored or transmitted as plain text.It converts binary data into text using only: A–Z, a–z, 0–9, +, / ; so : You usually run this to create a strong JWT secret, session secret, or encryption key ; Base64 ensures the secret is only text characters, so it’s easy to store in .env files and environment variables, without breaking formatting.
+
+The strength of your JWT authentication depends on the secrecy of this key.
+If someone gets this secret, they can generate valid JWTs and impersonate users — that’s why the secret must stay private.
+
+See the next steps in User.js file now there.

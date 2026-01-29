@@ -1,0 +1,16 @@
+We now will see the Login workflow here below :
+
+- We type the email and password in the login form.
+- App makes sure that we have entered all the required fields in proper format there.
+- When we press "Login" , the credentials are sent to the server.
+- Server checks database to verify if the email exists in database or not.
+- If found, the server compares the password with the stored/hashed/encrypted password.
+- If the passwords match, then server generates a JWT(JSON Web token), which is a special digital ID card for us there.
+
+- Its because now upon login also, the user now is "authenticated" , so if the user further makes any request like "create a book", etc ; then the server will match the token and then only allow your request to be successful there ; else : it may be possible that a hacker is there ; so won't allow his request to be fulfilled there ; thats why till user is logged in , a TOKEN must be stored in mobile in async storage there, to ensure that requests are allowed from that trusted user having the token only thus there.
+
+- The server then sends this token to the app along with some basic info about your account there ; because like in register, here also we will not save token on server but in the AsyncStorage of the client/mobile application there.
+- The app stores this token on the device using "AsyncStorage" : like a small cabinet for the app data.
+- Now we will be logged in there and can use the app now!
+
+See the next steps in User.js file now there.

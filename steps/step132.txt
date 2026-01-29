@@ -1,0 +1,3 @@
+Now, lets go on : cloudinary.com > home > dashboard > copy paste the cloud name in .env file > then go to api keys > generate new one > get the api key and secret and paste in the .env file now there.
+
+See the next steps in cloudinary.js file now there.

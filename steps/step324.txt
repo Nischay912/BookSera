@@ -1,0 +1,5 @@
+Now : like learnt earlier : we will store the token coming from server in AsyncStorage in frontend ; which is like the localStorage that we have on web applications there.
+
+So in terminal > cd mobile > "npm i @react-native-async-storage/async-storage" > and now we will store the jwt token for the authenticated user in this storage now in frontend thus there.
+
+So, see the next steps in authStore.js file now there.

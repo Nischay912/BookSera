@@ -1,0 +1,19 @@
+First let do > cd backend > initialize nodeJs app using > npm init -y > "npm i express mongoose dotenv jsonwebtoken cloudinary bcryptjs cors"
+
+- Express is the web framework that helps us to create an API easily and quickly.
+- Mongoose will help us create the database in MongoDB.
+- To use env variables in different files, we use "dotenv" package.
+- jsonwebtoken will help in authentication.
+- cloudinary to save the pictures on cloud.
+- bcryptjs to hash the passwords and save them safely as hash values and not original password in database, so that even if database is stole, no one can see th epasswords of user there.
+- cors will help to get rid of the cors errors like when request is made from one port to errors, CORS policy not allows it, so we have "cors" package to help us allow that there.
+
+Then we can do "npm i nodemon -D" to have the nodemon package for development only (D) : so that it can keep watching for any changes in the server there and keep restarting it automatically, instead of us manually doing node server.js everytime when changes made in server there.
+
+Go in package.json file and add there : "type": "module", : to prevent using the commonJs which is there by default and thus we now can use import/export syntax instead of the require(..) syntax now there.
+
+And for convention, we create a "src" folder, where we will keep all the files of the application at one place there now.
+
+Also : create a script to run the file in terminal i.e. : "dev": "nodemon src/index.js" and so now we can run the server using "npm run dev" in the terminal now there.
+
+See the next steps in index.js file now there.

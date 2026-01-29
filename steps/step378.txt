@@ -1,0 +1,15 @@
+Now : since we know that : we need not in real time have that home screen with all the links like login, signup, then hello and all ; so we remove that index.jsx file of the root app directory folder OR just rename it to something different like the .txt file now there.
+
+So : now we only have one index.jsx file in our whole app i.e. in the (auth) folder for the login page so that will now be the first entry point of the app : everytime, we will reload the app pressing "r" in the terminal, hence so thus now there.
+
+Now : we want to send the user as soon as he is authenticated to the home screen or the home tab there ; so for that lets first create the home tab there now.
+
+In react native, if we create a folder named (tabs) ; then all the .jsx files made in it becomes the screens for each new tab now there.
+
+So : this (tabs) folder now act as tab navigator and contains the 3 different tabs that we want to be there in our app now.
+
+Home screen can also be named there as index.jsx as it will be the entry point or the 1st screen by default for the (tabs) folder there now.
+
+We will also have a _layout.jsx file there in the (tabs) folder that will help us to customize the tabs and add all the icons there ; and then change colors and implement the stylings and all there.
+
+See the next steps in that _layout.jsx file of the (tabs) folder now there.

@@ -1,0 +1,47 @@
+React Natvie is a framework that allows us to build mobile applications, using React (JavaScript / TypeScript).
+
+Cross-platform developement means : writing codes once, that can run on multiple platforms.
+
+React Natvie is a cross platform framework because we can write on codebase in JavaScript and then can deploy it on/in/to both Android and IOS.
+
+Earlier, in old days : when building mobile application : we had to build it twice, once for the App Store and then one for the play store.
+
+There we first had to learn SWIFT, Objective-C for IOS and KOTLIN, Java for Android ; Also to build it for IOS, it was necessary to have a Macbook and XCode was required as IDE ; same for Android : we had to learn Android SDK and its frameworks ; and then use : Android Studio / Eclipse as IDE there.
+
+-------------------------------------------------------------------------------------------
+
+All above was very expensive as we had to hire 2 teams one for IOS , other for Android ; but now it has become easier by using : React-Native now.
+
+React-Native documentation on : reactnative.dev : which tells that : the best way to experience React Native is through a framework ; and the one which they prefer the most is "EXPO"
+
+So, we will be using EXPO as our framework for building our React Native application in our project here.
+
+But remember that : React Native != Expo : Expo is a framework built on top as framework for React Native, which makes the developement of React Native more easier ; its like NextJs built as framework on top of react in web developement and just provides some out of the box features and optimizations when using it as a framework too, thus here below.
+
+Expo is like a toolbox that has all the necessary APIs to let you build production ready applications.
+
+Can refer even to the tutorial on "expo.dev" too.
+
+-------------------------------------------------------------------------------------------
+
+More differences between react and reactnative was told in notes of Listraq project : can see there too.
+
+- We have no <div> or <p> or <h1, h2> here : we have > <View> for div and <Text> for any type of texts like : h1, h2, p , etc....
+
+- We have a stylesheet in react Native that we import and use in different files ; we have all the styles as objects in that styles object ; and can use in different files using styles.container , styles.card , etc ... can use all other styles of that stylesheet present in the "styles" object there.
+
+- We have TouchableOpacity or Pressable instead of buttons in React Native ; also we have : onPress, onLongPress (mobile-related events) instead of onClick, onMouseOver used in web apps.
+
+- in web apps we have ".map" to iterate over an array or something and do something there using "map" for each item, get each item and render/return something there ; we can do same in react native too ; but better option is to use "FlatList" in React Native which is more optimized version to use ; where in flatlist itself we mention array to traverse in "data" and what to render for each item in "renderItem" there : <FlatList data={items} renderItem={renderItem} ; where renderItem is a function that takes each item and renders some <View> or Text there and so on.... ; and so for each item there, we call the renderItem function there ; and in that renderItem function, we again take the "item" each item of the flatlist and return something/ some UI corresponding to each item there, thus here below.
+
+- In web apps we have a "forms" with input tags and all; but in react native we have : TextInput component in React Native : which is almost the same thing, like "value", "onChange" of forms is same in the TextInput of react native too, but with some syntax differences, that we will see while implementing it in our code later there now, thus here below.
+
+- in web apps we have form with onSubmit ; but in react native : we have a TouchableOpacity with onPress which will submit it there directly without explicitly mentioning onSubmit there.
+
+----------------------------------------------------------------------------------------------
+
+To get started, we can install the "EXPO" app on phones, "Android Studio" on windows, and for ios : "XCode" on Macbooks.
+
+----------------------------------------------------------------------------------------------
+
+See the next steps in step in step226.txt file now there.

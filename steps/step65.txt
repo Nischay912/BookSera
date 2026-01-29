@@ -1,0 +1,3 @@
+We know that the user will be sending us password like "123456" : but what if database gets hacked ; we can't let the passwords of users to be leaked ; so we use "bcryptjs" package, which is used to encrypt the password by converting it to some unreadable format ; this is called that the password will be HASHED there.
+
+So, lets see the next steps in User.js file now there.

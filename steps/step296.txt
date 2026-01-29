@@ -1,0 +1,7 @@
+Now : lets use zustand store from : https://zustand-demo.pmnd.rs/ > it allows to have all the states present globally at one place and can be used anywhere in the app from one store only , instead of prop drilling i.e. instead of sending props from one parent to next child ; it can be accessed in all files directly from the zustand store by importing it directly there.
+
+So : in terminal > cd mobile > npm i zustand > and in another terminal using "+", we do : cd backend > npm run dev.
+
+See the next steps in authStore.js file now there to store all the states related to authentication there ; so that in all authentication related pages ; it can be used directly instead of defining the states again and again in each page seperately there.
+
+See the next steps in authStore.js file now there.

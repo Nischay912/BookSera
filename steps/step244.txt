@@ -1,0 +1,7 @@
+Now: we see that once we hide the header there ; then the content of the screen is overflowing outside the top "status bar" of the screen there and becoming invisible there.
+
+To fix this we have a component called "SafeArea" to bring the content in safe area and prevent overflowing of it there.
+
+So, we wrap all the content with the <SafeArea> component in the root folder's _layout.jsx file now there and after that wrap the content inside with another component <SafeScreen> that we will be creating now.
+
+So, see the next steps in SafeScreen.jsx file now there.

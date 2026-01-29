@@ -1,0 +1,19 @@
+We will implement Pagination i.e. infinte scrolling/loading in the page.
+
+It means : if we have 1000 books ; we don't want all of them to get loaded at once in the page there of the application, as it may crash the system or slow the speed due to too much loading at once ; so better to have infinte scrolling i..e as we scroll the page ; books document will be fetched and displayed there on the page there.
+
+So, we will fetch one by one here i.e. first fetch the first 5 posts, then as the user scrolls, we will fetch 5 more , 5 more and so on.....
+
+This thus prevents laoding all 1000 posts at once as it will be un-necessary by logic there.
+
+------------------------------------------------------------------------------------------------------
+
+So, from the react native application, we will be sending request like -
+
+const response = await fetch("http://localhost:3000/api/books?page=1&limit=5");
+
+So, it means in the initial load, we want to get the 1st page with 5 results and then as the user scrolls, page number will be incremented by 1; so it will be 2nd page then and again 5 more results will be fteched and shown there and thus it will keep increasing as the user scrolls there.
+
+So, as the user scrolls this .....?page=2 then page=3 .... this query will keep incrementing there.
+
+So, see the next steps now in bookRoutes.js file now there.

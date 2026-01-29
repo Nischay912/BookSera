@@ -1,0 +1,5 @@
+For now, anyone can call the endpoint we made and can create a book there now ; so we want to make this endpoint to be protected, so that only the authenticated users can create a book there.
+
+So, in the bookRoute.js file : lets pass a "protectRoute" middleware there ; so that before calling the function for the try-catch block there, lets first go through the protected route there, and then only allow to run this function by those authenticated users only, who passed through the middleware successfully there.
+
+So, see the next steps in bookRoutes.js file now there.

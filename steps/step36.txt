@@ -1,0 +1,20 @@
+"Client" refers to the mobile application ; and "server" means the API we are creating here.
+
+The authentication we will be implementing is "token - based authentication" 
+
+The secure token will be created by the server and the token will contain encrypted information about who you are ; its like the user id ; so the user id will be in the token ; so that we know who you are and then this token will be sent to clients , i.e. to our mobile application ; and the mobile application will store this token and send it with the future requests to prove your identity ; i.e. : once logged in the token got stored , so now any request made in future like creating a book recommendation , so then this token will be sent with any requests made ; so that server knows that the user sending the request is authenticated and allows that.
+
+Signup Workflow -
+
+• We will first type the username, email and password into the signup form ; and get errors or will be passed if all the fields are correct there like password length or etc. there.
+• When we click on "SignUp" our information will be sent to the server.
+• Server will check the database, to check if the username or email is already being used by other users or not.
+• Else, if everything is good, the server will create a new user account for us there in the database.
+• Then the server will create a "JWT (JSON Web Token)" , which is like a special digital ID Card , that tells who we are and will also tell that we are authenticated. 
+• But the server will not store this JWT token on the server, instead it will just create and send it to the application, along with some basic info about the account.
+• And, then the server will send this token back to the application along with some basic info about the account.
+• The application will store this token on the device and whenever we send a new request, it will send this token with this new request to the server there.
+• The app stores this token on the device using something called "AsyncStorage" : which is like the localStorage of websites ; which is like a small file cabinet for the app data.
+• Now when we are logged in successfully, we can use the app, thus there.
+
+See the next steps in authRoutes.js file now there.

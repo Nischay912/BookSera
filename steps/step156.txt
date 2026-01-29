@@ -1,0 +1,9 @@
+Now : for authentication, we will be using : token based authentication, where a server creates a token that contains encrypted information about who the user is ; the app stores this token and sends it with future requests if made any like adding a book, etc ; so that : it can prove the user's identity that the request came from a authenticated user only there.
+
+In authRoutes.js file : we had made generateToken function that created this token there with the userId , so that it tells which user it is based on that userId there.
+
+So, that s why now in bookRoutes.js file there , we first call this middleware of protectRoute there and then only run the function there for "/" endpoint made there.
+
+So, now when the server sends the token back to the client (application) : then the app stores that token, and for any future requests made, this token will be sent along with that request too there, to prove to the server that the user sending the request is authenticated, so allow him there.
+
+See the next steps in auth.middleware.js file now there.

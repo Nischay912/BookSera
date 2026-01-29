@@ -1,0 +1,19 @@
+Now : in _layout.tsx file there > we have a Stack navigator there.
+
+In react native , we have many different navigators > Tab navigator is the one present at bottom of the screen that is used to see the different screens there based on the current selected tab there.
+
+Then the Stack navigator is a navigator that acts like a stack, where new tabs comes form right side and we can go to previous slides there by clicking on back button & the previous slides comes from the left side there.
+
+This is done by help of the <Stack > navigator we are using in the _layout.tsx file now there.
+
+If there we do : <Stack screenOptions = {{  headerShown: false }} /> : then the header coming based on file name on each page will stop coming there now.
+
+If we want to have the header shown but want to rename it then we can do as follows there -
+
+<Stack screenOptions = {{  headerShown: false }}>
+    <Stack.screen name="index" options={{ title: "Home" }} />
+</Stack>
+
+The name of screen should match the file name i.e. it was index.jsx so keep it "index" and then add new name in options like done here below.
+
+See the next steps in index.jsx file now there.

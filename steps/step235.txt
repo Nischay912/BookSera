@@ -1,0 +1,21 @@
+We can group all routes related to authentication under a folder named (auth) as it helps to organize related screens without affecting the URL or route structure.
+
+(app)/(auth)/login.js
+(app)/(auth)/register.js
+(app)/(main)/home.js
+(app)/(main)/profile.js
+
+Route becomes:
+
+/login
+/register
+/home
+/profile
+
+Thus the routes remain unaffected and not becomes something like : /auth/login and all : and thus links are unaffected and all authentication routes gets organized at a single place too here, thus here below.
+
+We can have the folder again have the starting home page for those routes to be named index.jsx , its convention that it will be the starting home page for that folder related to auth grouped in it ; and its different from the default home index.jsx page we had in root directory of "app" there.
+
+And then we can get the basic boilerplate for each using the shortcut "rnfe" > ENTER : now there in each of them.
+
+See the next steps in _layout.jsx file of (auth) folder now there.

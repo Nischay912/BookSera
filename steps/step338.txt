@@ -1,0 +1,25 @@
+Now : we can test this in our app android studion on laptop : by entering details there and clicking signup > it may give network requets error as we are using localhost:3000 fo fetch request > so make it : http://10.0.2.2:3000/api/auth/register there and then try > it will work and tell errors too like password not long enough and all from backend ; els eif all correct will store the user in database on mongodb.com there , can check there too.
+
+Then : but if we try to do the same on our physical device : it wont work as the backend call is being made on localhost:3000 ; but our device is not the localhost i.e. PC ; so we must deploy our backend API globally publicly to make it accessible via physical mobile devide too there.
+
+So, we will deploy the API : so that we can make the requests from our physical device too there.
+
+So : go in terminal > cd backend > git init > and push only backend part to github there as its the only thing we want to deploy there.
+
+Go on render.com > add new > web service > choose the repository > in build command : "npm install" to install all the node modules as we had not pushed node modules on github > for start command : "node src/index.js" i.e. instead of nodemon use node now as we dont want to make changes to live server continously for changes made in code ; nodemon is just for development thats why we installed it using -D there i.e. for development only.
+
+choose free plan > but it goes inactive every 15 minutes if no request sent to it > so for a fresh request after 15 min , it will take 1 minute to boot up the server first there.
+
+Add the environment variables > and deploy it now there.
+
+Copy the URL of live API and paste it now in authStore.js file ka fetch command there now.
+
+Now : we can do signup and see the added user in database from physical device too now there.
+
+But we have problem that this API gets inactive every 15 mins if no request came ; causing delays for next requests there , so we fix it using "CRON JOBS" there now.
+
+So, we will be sending request automatically now every 14 minutes just before it goes inactive if no request sent till 15 mins ; for that we will be using CRON JOBS now here.
+
+So : we go in backend folder > in terminal : cd backend > npm i cron.
+
+Then in cron.js file in "lib" folder , see the next steps now there.

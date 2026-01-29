@@ -1,0 +1,7 @@
+Now we can go on : https://www.storyset.com > and search for "book" and get various images to be used in our app from there now.
+
+Can change color of image using the "primary" color code from colors.js file there , based on our theme being used and then download it as PNG > and then save in the images folder in the assets folder now there.
+
+Then we can go on : https://jetbrains.com/lp/mono/ and grab the font to be used in the app from there > click on download > get a zip folder > unzip it > put the jebrainsmono-medium.ttf file from there under the fonts folder now here.
+
+See the next steps in step232.txt file now there.

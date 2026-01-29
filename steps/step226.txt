@@ -1,0 +1,15 @@
+Now lets try to initialize our React Native application using EXPO > go on "expo.dev" > read the docs there.
+
+Open terminal > cd .\mobile > (can type "cd" and then keep pressing tab one by one till get required directory name there) > then do : "npx create-expo-app@latest ." paste in terminal > we added "space" followed by "." as we want to initialize all the things of that expo inside the current folder/directory i.e. under "mobile" folder only ; not outside creating new folder , thats why added extra "." thus now there.
+
+Then we can delete the default files that come there y typing : "npm run reset-project" and then "n" there in terminal if asked to create an example of it there.
+
+To run this on physical phone > "npx expo" > scan qr code there ; and to run on simulator , press "a" to run the app in the android simulator app of laptop ; press "i" in macbooks if there.
+
+Anytime to refresh the app and bundle again press "r" in terminal anytime too there.
+
+Can press "w" in terminal to run the app on webpage too > and then go in inspect and set the device name there in responsiveness to see there the look of webpage version in any specific device now there ; but we don't want this as we want to do on apps and not webpage design there.
+
+Now can edit the <Text> in index.tsx file to see real-time changes in physical phone or the android simulator too there ; to verify that yes the app is running properly and working now there ; thus here below.
+
+See the next steps in step227.txt file now there.

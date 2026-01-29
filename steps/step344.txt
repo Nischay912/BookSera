@@ -1,0 +1,13 @@
+Now : we can make the changes in terminal > cd backend > git add . > git commit -m "cron added and implemented" > git push.
+
+Then redeploy on render.com , though no need as since we logged in via github ; it auto re-deploys the web service everytime new commits and push are done in that repository there.
+
+But also add the API_URL variable that we used in cron.js file with value equal to the live link from rendr in the environment variables section there on render.com now there.
+
+So : now every 14 minutes a GET request will be sent to the deployed api , keeping it active all the time, thus here below.
+
+And also include API_URL in the .env of file here to prveent errors in temrinal and also use dotenv package there as by rule if we want to use env variables in a file ; we must import dotenv and use its dotenv.config() method always first there on the top there, thus here below.
+
+However when running the app on simulator and not physical phone no need to use this deployed API and put pressure on server by making request continously ther e; rather use http://10.0.2.2:3000/api/auth/register for AVD android simulator devices by rule learnt earlier now there.
+
+See the next steps in index.jsx file of the root app directory folder now there.

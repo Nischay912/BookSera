@@ -1,0 +1,13 @@
+# ===== Backend =====
+backend/node_modules/
+backend/.env
+
+# ===== Mobile =====
+mobile/node_modules/
+mobile/.env
+
+# ===== General =====
+.env
+.DS_Store
+npm-debug.log
+yarn-error.log

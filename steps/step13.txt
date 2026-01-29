@@ -1,0 +1,20 @@
+We will be using the MONGODB database > go on mongodb.com > create new project "BookSera" > next > create.
+
+Create new cluster > free plan > create deployment > copy the password and then create database user > choose a connection string > drivers > copy the connection string > paste in .env file > but by default database name becomes "test" ; so to change it : we must do there in connection string as : after "mongodb.net/" we will put : mongodb.net/BookSera?... > gets the name "BookSera" to database now.
+
+Go in network access > ip access list > add ip address > allow access from anywhere > confirm.
+
+This is done because : When you use MongoDB Atlas (cloud MongoDB), by default all network access is blocked for security. MongoDB does this to protect your database from unauthorized access.
+
+But when we did this now : Allow connection from any IP address on the internet ; its needed because : Your Node.js / Python / Java / frontend app runs from your system, and it needs to connect to MongoDB. If MongoDB is blocking your system’s IP, your app cannot connect.
+
+SO, adding the IP address like this : Allows that device/server to connect to the MongoDB cluster.
+
+What does Allow access from anywhere (0.0.0.0/0) mean?
+
+It means MongoDB is open to all IPs.
+This is easy while developing because your IP might change or you're using multiple devices.
+
+But : Allowing 0.0.0.0/0 is not secure. It allows everyone on the internet to attempt access ; better to keep our own pc and trusted pc ip address only there ; or : Or allow only your server’s public IP ; but for now lets keep like that only there.
+
+See the next steps in db.js file now there. 
