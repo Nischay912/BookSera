@@ -1,6 +1,7 @@
 // step297: zustand store needs the "create" function from "zustand" package to create the store, thus here below.
 import {create} from "zustand"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { API_URL } from "../constants/api"
 
 // step298: now lets create the store and export it too ; so that the functions or states in it can be accessed from anywhere, where this store will be imported there, thus here below.
 
@@ -39,7 +40,7 @@ export const useAuthStore = create((set,get) => ({
         try{
 
             // step314: so we now send a fetch request to the endpoint we made in backend to register the user.
-            const response = await fetch("https://booksera-api.onrender.com/api/auth/register",{
+            const response = await fetch(`${API_URL}/auth/register`,{
 
                 // step315: since the endpoint we made in backend was a POST request, so we have to send a POST request here too, thus here below.
                 method: "POST",
@@ -111,7 +112,7 @@ export const useAuthStore = create((set,get) => ({
         // step362: we first set the loading state to true because now we are going to make a request to the backend to login the user and the request will take some time so we set the loading state to true, thus here below.
         try{
             // step363: done same as done in register method, so can look there for reference if needed, thus here below.
-            const response = await fetch('https://booksera-api.onrender.com/api/auth/login', {
+            const response = await fetch(`${API_URL}/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json" // helps to tell the server that the body will be sent as JSON , so be ready to parse it there using JSON.parse(), thus here below.

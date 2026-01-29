@@ -33,8 +33,28 @@ app.use(cors());
 // step43: lets now include the middleware before the routes so that we can use the middleware to parse the JSON body of the request now there ; and make the req.body to now not be undefined, thus here below ; and also we must place this before the routes so that before sending the request at endpoint, the middleware should be there to convert the JSON body of the request into a JavaScript object to get proper definded data in req.body for the server, thus here below.
 
 // step44: see the next steps in authRoutes.js file now there.
-app.use(express.json());
+// app.use(express.json());
 
+// this done because -
+/*
+ This middleware allows Express to safely parse incoming request bodies.
+ By default, Express only accepts very small JSON payloads (~100kb).
+ In this project, we are sending Base64-encoded images from the frontend,
+ which are much larger in size (usually several megabytes).
+
+ Without increasing the limit, the server would reject the request before
+ it reaches the route handler, causing the hosting platform to return an
+ HTML error page instead of JSON. This results in frontend crashes like:
+ "JSON Parse error: Unexpected character: <".
+
+ Setting the limit to "10mb" ensures that large payloads such as Base64
+ images are accepted and correctly parsed into req.body.
+
+ express.json() parses JSON request bodies.
+ express.urlencoded() parses URL-encoded form data.
+ extended: true allows parsing of nested objects and complex structures. */
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 app.get('/api/health', (req,res) => {
     res.status(200).json({status: "ok"})
@@ -48,7 +68,7 @@ app.use("/api/auth", authRoutes);
 // step112: now lets make the route for things related to books here below.
 
 // step113: see the next steps in Book.js file now there.
-app.use("/api/auth", bookRoutes);
+app.use("/api/books", bookRoutes);
 
 // step5: now we can use the PORT variable instead of the hardcoded value now, thus here below.
 app.listen(PORT, () => {

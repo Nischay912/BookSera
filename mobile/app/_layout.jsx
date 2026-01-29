@@ -4,6 +4,7 @@ import SafeScreen from "../components/SafeScreen";
 import { StatusBar } from "expo-status-bar";
 import { useAuthStore } from "../store/authStore";
 import { useEffect } from "react";
+import { useState } from "react";
 
 export default function RootLayout() {
   // step383: now lets get the router using the useRouter function from expo-router now thus here below and also the segment from the useSegment hook from expo-router now thus here below.
@@ -20,11 +21,19 @@ export default function RootLayout() {
   // step387: now lets get the states and functions from the useAuthStore hook from the auth store, thus here below.
   const { checkAuth, user, token } = useAuthStore();
 
+  const [mounted, setMounted] = useState(false);
+
   // step388: as soon as we start the application, we want to check if user is authenticated or not using the checkAuth function as this is the _layout file in the root folder,so adding useEffect here means we will be able to check if user is authenticated or not whenever we start the application as it will first run the layout file of the root folder "app" only, thus here below.
   useEffect(() => {checkAuth()}, []) // [] means that : run this function only once when the app starts, thus here below.
 
+  // ERROR was coming that : "Attempted to navigate before mounting the Root Layout component" ; as immediately as app was loaded, <Stack/> is not ready of root _layout.jsx yet, but we tried doing router.replace() below in useEffect later below there ; so we initially set the mounted state to "false" ; because earlier , the useEffect neeche vala had only [user, token, segments] and all were already NOT-NULL, so that useEffect ran even when router not fully mounted and ready ; so we make this mounted as false and added to its [...] in useEffect, so that the router.replace() and all navigation not take place till expo is fully rendered ; so only when mounted is set true here below after the app is fully rendered, then we can run the router.replace() ; thus here below ; prevents the error from there, thus here below.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // step389: now lets have one more useEffect to handle the navigation based on the authentication state, thus here below ; and we will run this whenever the user, token or the segments changes, thus here below.
   useEffect(() => {
+    if (!mounted) return;
 
     // step390: if user is in the auth screen or not can be checked using the 0th index of the array segments return thus here below.
     const inAuthScreen = segments[0] === "(auth)";
@@ -44,7 +53,7 @@ export default function RootLayout() {
       router.replace("/(tabs)");
     }
 
-  }, [user, token, segments])
+  }, [mounted,user, token, segments])
 
   return (
     <SafeAreaProvider>
