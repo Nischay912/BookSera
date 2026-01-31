@@ -30,6 +30,9 @@ export const useAuthStore = create((set,get) => ({
     // step310: and lets make the loading state here only that will be imported and used in other files when needed there & its also thus here below : initially false because we don't want to show loading screen by default, thus here below.
     isLoading: false,
 
+    // step625: so now we create a state to check for the authentication, which will be true initially as , when we start the application, we always check for authentication, so we set it to true initially, thus here below.
+    isCheckingAuth: true,
+
     // step311: now we will have the functions here below ; first lets have the register function, thus here below.
 
     // step312: it will use the username, email and password to register the user, thus here below.
@@ -176,6 +179,13 @@ export const useAuthStore = create((set,get) => ({
         }
         catch(error){
             console.log("Auth check failed due to some error", error);
+        }
+
+        // step626: so then in this function of checking auth, in the finally block, which is executed always whetehr the try block ran or catch block ; so here in finally, we set the isCheckingAuth to false ; this is done because when app starts token is null, so app checks if user is authenticated, redirects to login for a split second then checkAuth function runs there and sees that user is actually logged in, so takes back to home scren again, thus the screen flickers for a split second of time there, thus here below.
+
+        // step627: see the next steps in (auth)/index.jsx file now there.
+        finally{
+            set({isCheckingAuth: false})
         }
     },
 

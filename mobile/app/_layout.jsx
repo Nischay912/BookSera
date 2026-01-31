@@ -1,10 +1,16 @@
-import { Stack, useRouter, useSegments } from "expo-router";
+import { SplashScreen, Stack, useRouter, useSegments } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import SafeScreen from "../components/SafeScreen";
 import { StatusBar } from "expo-status-bar";
 import { useAuthStore } from "../store/authStore";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useFonts } from "expo-font";
+
+// step633: so now lets have the function here below to control the native launch screen that appears before the app loads; i.e. the app logo and loading screen we see when app is bundling on pressing "r" in temrinal or loading first time is this SPLASHSCREEN, thus here below.
+
+// step634: so by default : react native auto hides the the splashscreen once the app is bundled and loaded ; but if we want to prevent it from hiding automatically, we use the function ; so now on clicking "r" in temrinal the splashscreen will still be there visible even after the app is bundled safely and completely there, thus here below.
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   // step383: now lets get the router using the useRouter function from expo-router now thus here below and also the segment from the useSegment hook from expo-router now thus here below.
@@ -22,6 +28,25 @@ export default function RootLayout() {
   const { checkAuth, user, token } = useAuthStore();
 
   const [mounted, setMounted] = useState(false);
+
+  // step635: now we want to load the fonts from the assets folder, thus here below ; using the useFonts hook of expo , and put the font name and its path now, thus here below.
+
+  // step636: useFonts returns an array and not an object i.e. [boolean, error if any else null] ; so we extract the values using destructuring [] ; thus we extract the value the 0th index value here i.e. true or folse for the fonts loaded here, thus here below ; like in const arr = [10, 20] , we if do : const [a,b] = arr ; then we will get a = 10 and b = 20 ; thus here below ; and if we just do [a] , then it takes only the 1st value ; similarly [,b] will give 2nd value ; [,,c] will give 3rd value in "c" and so on... , thus here below.
+  const [fontsLoaded] = useFonts({
+    "JetBrainsMono-Medium": require("../assets/fonts/JetBrainsMono-Medium.ttf"),
+  })
+
+  // step637: now finally we have prevented the splashscreen from the app earlier because if we hide the splash screen earlier and then these fonts load in between , then the DEFAULT FONTS ARE DEVICE'S SYSTEM FONTS, so it will change suddenly once fonts loaded there and look weird when fonts changes sudeenly in between for 1 2 sec split second when app and font loads ; thats why we kept the splashscreen visible there and only when we load the fonts, we now in the useEffect ; once fontsLoaded state changes i.e. initially always fontsLoaded is false returned by useFonts hook and then splashscreen stays there on screen and once the value of fontsLoaded changes and it becomes true, then we hide the splashScreen manually and load the app as now it will be loaded with the fonts we mentioned and not change in between in a split second after app was loaded, looking weird to the eyes and UI, thus here below.
+
+  // step638: and this will work because we have the "JetBrainsMono-Medium" font written for the font-family in signup.styles.js file and other files there too using this font there, thus here below.
+  useEffect(() => {
+    if(fontsLoaded === true) {
+      // step639: this is method to manually hide the splashSceen now that we had earlier made to prevent from hiding earlier using the function "SplashScreen.preventAutoHideAsync()" earlier there above, thus here below.
+
+      // step640: see the next steps in step641.txt file now there.
+      SplashScreen.hideAsync();
+    }
+  },[fontsLoaded])
 
   // step388: as soon as we start the application, we want to check if user is authenticated or not using the checkAuth function as this is the _layout file in the root folder,so adding useEffect here means we will be able to check if user is authenticated or not whenever we start the application as it will first run the layout file of the root folder "app" only, thus here below.
   useEffect(() => {checkAuth()}, []) // [] means that : run this function only once when the app starts, thus here below.

@@ -1,0 +1,3 @@
+We had a font JetBrains in the assets folder, but we never used it in our application ; so : first we know that : there is a SPLASHSCREEEN which is the icon fo react expo or something we see while the app is loading or building there when we reload the app by pressing "r" in the terminal of npx expo ; so now we want to show the user the SplashScreen till the fonts are loaded, so that during that duration only all the fonts we want to use gets loaded and so it doesn't happen in between the running of application ; rather all loads there at the beginning only there, thus here below.
+
+So, see the next steps in _layout.jsx file of the root folder "app", thus here below.

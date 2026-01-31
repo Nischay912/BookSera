@@ -1,0 +1,1 @@
+Now we see that : when the app is loaded, then for a few seconds we see the loading screen and other empty books array text there, so to prevent that ; we can go in the authStore.js file : and then see the next steps there now.

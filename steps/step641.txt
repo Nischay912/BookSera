@@ -1,0 +1,9 @@
+Now we if want to change the logo of the SplashScreen that appears there by default provided by expo, then we can do it using the following steps, thus here below.
+
+We in the assets folder > images > we have icon.png > which is used for IOS devices splash screen and then we have adaptive-icon.png used for splash screen of android devices ; and we have a splash-icon as well thats visible there when app is bundling when we open app for first time or reload the app by pressing "r" in the terminal of npx expo, thus here below.
+
+SO, we can delete the existing icons for the app builder icon of SplashScreen that comes there and replace it with this one here, thus here below.
+
+SO, we do that and then the previous one kept there with prefix "previous_" for refrence if want to bring them back again there, thus here below.
+
+<----- PROJECT COMPLETED!! 🎉🎉❤️❤️ ----->

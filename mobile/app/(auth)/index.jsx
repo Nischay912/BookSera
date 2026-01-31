@@ -18,7 +18,9 @@ export default function Login () {
   // const [isLoading, setIsLoading] = useState(false); // by default false as we don't want to show loading screen by default, thus here below.
 
   // step373: lets get all the needed states and functions from the auth store, thus here below.
-  const {isLoading, login} = useAuthStore();
+
+  // step628: now lets get the isCheckingAuth state from the auth store, thus here below.
+  const {isLoading, login, isCheckingAuth} = useAuthStore();
 
   const handleLogin = async () => {
     // step374: now lets get the thing we returned when calling the login function in the auth store, thus here below.
@@ -34,6 +36,42 @@ export default function Login () {
       Alert.alert("Error", result.error);
     }
   }
+
+  // step629: then when we are checking for authentication, then we return null here ; its because if the app when reloaded checks for authentication, then no need to show anything like the login screen there for a split second, rather return NULL there, i.e. nothing shown and then like done in AuthStore in finally block once app loaded, and authentication check done, this isCheckingAuth state becomes false again, we did in previous steps and so we get back the components of home screen rendered there now, thus here below.
+
+  /*
+  So here : if return null is not there then -
+
+  " // no guard
+    return <LoginScreen /> "
+
+  App starts
+  token = null (initial)
+  → Login screen shows
+  → then token loads from storage
+  → suddenly redirect to home ; screen flickers 
+
+  ; but if we use return null here, then -
+
+    App starts
+    isCheckingAuth = true
+    → render NOTHING
+
+    checkAuth finishes
+    isCheckingAuth = false
+
+    NOW render login or home correctly
+  */
+
+    //  CAN EVEN SHOW SPINNER TOO FROM THE LOADER.JSX FILE IMPORT <LOADER /> AND RETURN LOADER, THUS HERE BELWO TOO, IT WILL ALSO WORK INSTEAD OF REDIRECTING TO LOGIN FOR A SMALL TIME AND FLICKERING THE SCREEN THERE, THUS HERE BELOW i.e. :
+
+      // if(isCheckingAuth){
+      //   return <Loader />
+      // }
+
+  // step630: see the next steps in step631.txt file now there.
+  if(isCheckingAuth) return null;
+
   return (
     // step276: we had a problem that the keyboard was oveerlapping the input fields there, making it difficult to see what we are typing there ; so to fix that we use the KeyboardAvoidingView component from react-native, thus here below.
 
