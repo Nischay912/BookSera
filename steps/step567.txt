@@ -1,0 +1,5 @@
+So now : after changing backend also, no changes seen there, its probably because : we didn't logout and login again ; its because the user data is stored in AsyncStorage once logged in, so to update the Async Storage we need to logout and login back, because : App → still using OLD saved data from AsyncStorag ; so when we logout, then AsyncStorage will remove the item "user" , and so on login again, new data fetched from backend with createdAt too in it, which then visible on the profile screen membership date there, thus here below.
+
+AsyncStorage = Offline cache (local copy) ; so AsyncStorage not updates with change in backend directly ; needs to update the stored item there, so for that we re-login to delete the previous old data and new fresh data for the "user" set back in to be used with createdAt in it, thus here below.
+
+See the next steps in LogoutButton.jsx file now there.

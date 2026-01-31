@@ -6,7 +6,7 @@ export function formatMemberSince(dateString){
     // step513: then we format the date to local fomrat using the below code ; we can get short abbreviations for months Jan. feb .. OR long too using date.toLocaleString("default", { month: "long" }); OR date.toLocaleString("en-IN"); to get : 30/01/2026, 10:45:12 pm and so on ...., thus here below.
 
     // step514: "default" means use the device's locale to format the date, thus here below.
-    date.toLocaleString("default", { month: "short" });
+    const month = date.toLocaleString("default", { month: "short" });
 
     // step515: then we extract the 4 digit year, thus here below.
     const year = date.getFullYear();

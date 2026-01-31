@@ -150,7 +150,12 @@ router.post("/register", async (req, res)=> {
                 id: user._id, // as this is how mongodb stores the id in database i.e. as "_id"
                 username: user.username,
                 email: user.email,
-                profileImage: user.profileImage
+                profileImage: user.profileImage,
+                
+                // step565: also send the createdAt here, so that we can show it in profile screen from signup too here, for member since date, thus here below.
+
+                // step566: now see the next steps in step567.txt file now there, thus here below.
+                createdAt: user.createdAt
             },
 
             // step86: can now test this on POSTMAN by creating a new workspace for "BookSera" there now, thus here below.
@@ -219,7 +224,10 @@ router.post("/login", async (req, res)=> {
                 id: user._id,
                 username: user.username,
                 email: user.email,
-                profileImage: user.profileImage
+                profileImage: user.profileImage,
+
+                // step564: also send the createdAt here, so that we can show it in profile screen for member since date, thus here below.
+                createdAt: user.createdAt
             }
         })
         // step106: again now we can test this on POSTMAN for this "http://localhost:3000/api/auth/login" endpoint now, by sending email and password ther ein raw > body ; remember to enable JSON in the dropdown there instead of Text there, thus here below.
