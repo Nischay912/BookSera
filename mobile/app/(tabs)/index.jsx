@@ -14,7 +14,7 @@ import Loader from '../../components/Loader'
 // step544: we now create a sleep function to add some delays if needed, thus here below.
 
 // step545: so this function creates a pause/delay of "ms" milliseconds ; A promise returns something that will finish later ; it has 2 states pending and resolved ; so here : "resolve" is a function provided by JavaScript, which means when "Resolve()" is called means Promise is done ; so : setTimeout(resolve, ms) : it means that we call the resolve() function after "ms" milliseconds ; so overall here : sleep(ms) will return a Promise ; the Promise resolves after "ms" milliseconds and await waits for the Promise to resolve and thus add a delay of "ms" milliseconds and after that the code after await will be executed/ will continue from where it stopped/paused due to the delay, thus here below.
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export default function Home() {
   // step473: lets get the token for the logged in user from the useAuthStore hook, thus here below.
@@ -145,7 +145,7 @@ export default function Home() {
 
   // step486: now lets write the function which will be called for each item of the FlatList, thus here below.
 
-  // step487: now the renderItem of FlatList sends { item : books[0], index: 0, .... } , so we destructure and get the item from it to use it here below, thus here below.
+  // step487: now the renderItem of FlatList sends { item : books[0], index: 0, .... } , so we destructure the {item} from it to use it ; and get the item from it to use it here below, thus here below.
   const renderItem = ({item}) => (
     <View style={styles.bookCard}>
       {/* step488: so first we will have the header for each item , with the profile pic and username of the person who uploaded the book, thus here below. */}
