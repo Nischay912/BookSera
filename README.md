@@ -8,6 +8,20 @@ Works seamlessly on Android, iOS, and Web — with zero native code.
 
 ---
 
+## 📸 App Screenshots
+
+<p align="center">
+  <b>Home</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Create</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Profile</b><br/><br/>
+
+  <img src="mobile/assets/screenshots/home.png" width="250"/>
+  <img src="mobile/assets/screenshots/create.png" width="250"/>
+  <img src="mobile/assets/screenshots/profile.png" width="250"/>
+</p>
+
+---
+
 ## ✨ Features
 
 🔐 JWT Authentication (Signup / Login / Logout)  
